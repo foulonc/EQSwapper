@@ -31,13 +31,21 @@ $ListView.location = new-object system.drawing.point(0, 30)
 $ListView.Columns.Add("Number")
 $ListView.Columns.Add("Headphone")
 
+$item1 = New-Object System.Windows.Forms.ListViewItem('0')
+$item1.SubItems.Add('John')
+
+$item2 = New-Object System.Windows.Forms.ListViewItem('1')
+$item2.SubItems.Add('Jane')
+
+$ListView.Items.AddRange(($item1, $item2))
+
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
 $loadHeadphoneButton.text = "Load headphone configuration"
 $loadHeadphoneButton.width = 450
 $loadHeadphoneButton.height = 50
 $loadHeadphoneButton.location = New-Object System.Drawing.Point(0, 250)
-$loadHeadphoneButton.Font = 'Microsoft Sans Serif,10'
+$loadHeadphoneButton.Font = 'Microsoft Sans Serif, 10'
 $loadHeadphoneButton.ForeColor = "#ffffff"
 
 # ADD OTHER ELEMENTS ABOVE THIS LINE
