@@ -1,56 +1,70 @@
+. .\Code\EQSwapper.ps1
+$count = 0
 # Init PowerShell Gui
 Add-Type -AssemblyName System.Windows.Forms
 # Create a new form
 $EQSwapperForm = New-Object system.Windows.Forms.Form
 # Define the size, title and background color
-$EQSwapperForm.ClientSize = '450,300'
+$EQSwapperForm.ClientSize = '500,300'
 $EQSwapperForm.text = "EQ-Swapper"
 $EQSwapperForm.BackColor = "#ffffff"
-# Create a Title for our form. We will use a label for it.
-$Titel = New-Object system.Windows.Forms.Label
-# The content of the label
-$Titel.text = "Swap EQ configuration"
-# Make sure the label is sized the height and length of the content
-$Titel.AutoSize = $true
-# Define the minial width and height (not nessary with autosize true)
-$Titel.width = 500
-$Titel.height = 10
-# Position the element
-$Titel.location = New-Object System.Drawing.Point(0, 0)
-# Define the font type and size
-$Titel.Font = 'Microsoft Sans Serif,13'
 
 $ListView = New-Object system.windows.Forms.ListView
 $ListView.View = "Details"
 $ListView.Text = "ListView"
 $ListView.ForeColor = "#46a3ff"
 $ListView.Font = "Calibri,16"
-$ListView.Width = 450
+$ListView.Width = 500
 $ListView.Height = 300
-$ListView.location = new-object system.drawing.point(0, 30)
+$ListView.location = new-object system.drawing.point(0, 0)
 $ListView.Columns.Add("Number")
 $ListView.Columns.Add("Headphone")
 
-$item1 = New-Object System.Windows.Forms.ListViewItem('0')
-$item1.SubItems.Add('John')
-
-$item2 = New-Object System.Windows.Forms.ListViewItem('1')
-$item2.SubItems.Add('Jane')
-
-$ListView.Items.AddRange(($item1, $item2))
-
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
-$loadHeadphoneButton.text = "Load headphone configuration"
-$loadHeadphoneButton.width = 450
+$loadHeadphoneButton.text = "Load headphones"
+$loadHeadphoneButton.width = 250
 $loadHeadphoneButton.height = 50
 $loadHeadphoneButton.location = New-Object System.Drawing.Point(0, 250)
 $loadHeadphoneButton.Font = 'Microsoft Sans Serif, 10'
 $loadHeadphoneButton.ForeColor = "#ffffff"
+$loadHeadphoneButton.Add_Click(
+    {    
+        $headphones = get-headphones
+        foreach ($headphone in $headphones) {
+            $item = New-Object System.Windows.Forms.ListViewItem($count)
+            $item.SubItems.Add($headphone.split('\.')[-2])
+            $ListView.Items.AddRange(($item))
+            $count = $count + 1
+        }
+    }
+)
+
+
+$setHeadphoneEQButton = New-Object system.Windows.Forms.Button
+$setHeadphoneEQButton.BackColor = "#a4ba67"
+$setHeadphoneEQButton.text = "Set EQ"
+$setHeadphoneEQButton.width = 250
+$setHeadphoneEQButton.height = 50
+$setHeadphoneEQButton.location = New-Object System.Drawing.Point(250, 250)
+$setHeadphoneEQButton.Font = 'Microsoft Sans Serif, 10'
+$setHeadphoneEQButton.ForeColor = "#ffffff"
 
 # ADD OTHER ELEMENTS ABOVE THIS LINE
 # Add the elements to the form
-$EQSwapperForm.controls.AddRange(@($Titel, $loadHeadphoneButton, $ListView))
+$EQSwapperForm.controls.AddRange(@( $loadHeadphoneButton, $setHeadphoneEQButton, $ListView))
+
+
+$ListView.Add_click( {
+        foreach ($item in $ListViewBox.SelectedItems) { 
+            Write-Host $Item.text
+            foreach ($i in $item.SubItems) {
+                Write-Host $i.Text
+            }
+        }
+    })
+
+
 # THIS SHOULD BE AT THE END OF YOUR SCRIPT FOR NOW
 # Display the form
 [void]$EQSwapperForm.ShowDialog()
