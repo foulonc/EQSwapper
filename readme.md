@@ -10,8 +10,8 @@ You can either manually change the equalizer settings via the GUI, but I am to l
 ## Download the Equalizer file for your headphones
 
 Choose the ParametricEQ.TXT
-[For Example:](https://github.com/jaakkopasanen/AutoEq/tree/master/results/oratory1990/harman_in-ear_2019v2/1MORE%20Quad%20Driver)
-![jaakkopasanen](https://ibb.co/hHg1zhm 'Download Headphone EQ setting')
+[For Example](https://github.com/jaakkopasanen/AutoEq/tree/master/results/oratory1990/harman_in-ear_2019v2/1MORE%20Quad%20Driver)
+![jaakkopasanen](https://i.ibb.co/J2cFJ0s/2020-12-06-16-36-18-Auto-Eq-results-oratory1990-harman-in-ear-2019v2-1-MORE-Quad-Driver-at-master-ja.png 'Download Headphone EQ setting')
 
 ## Save the EQ file
 
