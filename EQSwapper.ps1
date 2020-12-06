@@ -7,7 +7,7 @@ do {
     [System.Console]::Clear()
     $headphones = Get-ChildItem -Path $headphonesPath -Name
     for ($count = 0; $count -lt $headphones.Length; $count++ ) {
-        Write-Host $count":" $headphones[$count]
+        Write-Host $count":" $headphones[$count].split('\.')[-2]
     }
     Write-Host `n "Type `"q`" to quit"
 
