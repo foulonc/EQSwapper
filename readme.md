@@ -11,6 +11,7 @@ You can either manually change the equalizer settings via the GUI, but I am to l
 
 Choose the ParametricEQ.TXT
 [For Example:](https://github.com/jaakkopasanen/AutoEq/tree/master/results/oratory1990/harman_in-ear_2019v2/1MORE%20Quad%20Driver)
+![jaakkopasanen](2020-12-06 16_36_18-AutoEq_results_oratory1990_harman_in-ear_2019v2_1MORE Quad Driver at master · ja.png)
 
 ## Save the EQ file
 
@@ -23,3 +24,4 @@ Save the ParametricEQ.TXT file to "C:\Program Files\EqualizerAPO\config\headphon
 ## When swapping headphones
 
 Run the script and select the currently connected headphones
+![Jaakkopasanen](examples/2020-12-06 16_35_02-EQSwapper.ps1 - Shortcut.png)
