@@ -2,21 +2,16 @@
 $destinationPath = "C:\Program Files\EqualizerAPO\config\config.txt"
 $headphonesPath = "C:\Program Files\EqualizerAPO\config\headphones\"
 
-
-### Retrieve list of all known headphones
-function Get-KnownHeadphones {
+do {
+    ### Retrieve list of all known headphones
     [System.Console]::Clear()
     $headphones = Get-ChildItem -Path $headphonesPath -Name
     for ($count = 0; $count -lt $headphones.Length; $count++ ) {
         Write-Host $count":" $headphones[$count]
     }
     Write-Host `n "Type `"q`" to quit"
-}
 
-
-### Ask what headphones are used
-do {
-    Get-KnownHeadphones
+    ### Ask what headphones are used
     $usedHeadphones = Read-Host "What headphones are plugged in?"
     if ($usedHeadphones -eq "q") {
         exit
