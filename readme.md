@@ -27,8 +27,10 @@ Run the script and select the currently connected headphones
 
 ![Jaakkopasanen](https://i.ibb.co/NsnCL3P/2020-12-06-16-35-02-EQSwapper-ps1-Shortcut.png 'Select headphone')
 
-### to build an exe
+## to build an exe
 
 simply copy paste EQSwapper.ps1 and CreateForm.ps1 in 1 file: combined.ps1
+
 run [PS2EXE](https://github.com/MScholtes/PS2EXE) to create an EXE
+
 `Invoke-PS2EXE .\combined.ps1 .\EQSwapper.exe`
