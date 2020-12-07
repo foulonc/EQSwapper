@@ -7,11 +7,11 @@ $answer = ""
 
 function get-headphones {
     ### Retrieve list of all known headphones
-    $headphones = Get-ChildItem -Path $headphonesPath -Name
-    for ($count = 0; $count -lt $headphones.Length; $count++ ) {
-        Write-Host $count":" $headphones[$count].split('\.')[-2]
-    }
-    Write-Host `n "Type `"q`" to quit"
+    $headphones = @(Get-ChildItem -Path $headphonesPath -Name)
+    # for ($count = 0; $count -lt $headphones.Length; $count++ ) {
+    #     Write-Host ("{0}: {1}" -f $Count, $headphones[$count].split('.')[-2])
+    # }
+    # Write-Host `n "Type `"q`" to quit"
     return $headphones
 }
 
