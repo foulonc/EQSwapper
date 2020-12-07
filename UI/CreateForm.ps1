@@ -20,7 +20,7 @@ $ListView.Columns.Add("Headphone")
 $ListView.FullRowSelect = $true
 $ListView.MultiSelect = $false
 $ListView.AutoResizeColumns([System.Windows.Forms.ColumnHeaderAutoResizeStyle]::HeaderSize)
-$ListView.HideSelection = false;
+$ListView.HideSelection = $false;
 
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
