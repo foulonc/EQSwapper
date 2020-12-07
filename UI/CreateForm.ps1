@@ -20,6 +20,7 @@ $ListView.Columns.Add("Headphone")
 $ListView.FullRowSelect = $true
 $ListView.MultiSelect = $false
 $ListView.AutoResizeColumns([System.Windows.Forms.ColumnHeaderAutoResizeStyle]::HeaderSize)
+$ListView.HideSelection = false;
 
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
@@ -35,23 +36,19 @@ $loadHeadphoneButton.Add_Click( { ButtonGetHeapdhonesAction })
 # Add the elements to the form
 $ListView.Add_click( { ListViewAction })
 
+$EQSwapperForm.controls.AddRange(@( $loadHeadphoneButton, $setHeadphoneEQButton, $ListView))
+
 # Logic
 . (Join-Path (Split-Path $PSscriptroot -Parent) "Code\EQSwapper.ps1")
 $count = 0
-$EQSwapperForm.controls.AddRange(@( $loadHeadphoneButton, $setHeadphoneEQButton, $ListView))
-
-
 
 # Functions
 Function ListViewAction {
     foreach ($item in $ListView.SelectedItems) { 
-        foreach ($i in $item.SubItems) {
-            Write-Host $i.Text
-            # set headphone EQ settings
-        }
+        $selectedHeadphone = $item.SubItems[1].Text
+        set-headphone($selectedHeadphone + ".txt")
     }
 }
-
 
 function ButtonGetHeapdhonesAction {
     $headphones = get-headphones
