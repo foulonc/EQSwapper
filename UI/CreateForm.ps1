@@ -13,16 +13,18 @@ Add-Type -AssemblyName System.Windows.Forms
 # Create a new form
 $EQSwapperForm = New-Object system.Windows.Forms.Form
 # Define the size, title and background color
-$EQSwapperForm.ClientSize = '500,300'
+$EQSwapperForm.ClientSize = '400,300'
 $EQSwapperForm.text = "EQ-Swapper"
 $EQSwapperForm.BackColor = "#ffffff"
+$EQSwapperForm.FormBorderStyle = 'Fixed3D'
+$EQSwapperForm.MaximizeBox = $false
 
 $ListView = New-Object system.windows.Forms.ListView
 $ListView.View = "Details"
 $ListView.Text = "ListView"
 $ListView.ForeColor = "#46a3ff"
 $ListView.Font = "Calibri,16"
-$ListView.Width = 500
+$ListView.Width = 400
 $ListView.Height = 300
 $ListView.location = new-object system.drawing.point(0, 0)
 $ListView.Columns.Add("Number")
@@ -36,7 +38,7 @@ $ListView.Columns[0].Width = 0;
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
 $loadHeadphoneButton.text = "Load headphones"
-$loadHeadphoneButton.width = 500
+$loadHeadphoneButton.width = 400
 $loadHeadphoneButton.height = 50
 $loadHeadphoneButton.location = New-Object System.Drawing.Point(0, 250)
 $loadHeadphoneButton.Font = 'Microsoft Sans Serif, 10'
