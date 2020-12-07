@@ -23,9 +23,9 @@ Save the ParametricEQ.TXT file to "C:\Program Files\EqualizerAPO\config\headphon
 
 ## When swapping headphones
 
-Run the script and select the currently connected headphones
+Run the executable and select the currently connected headphones
 
-![Jaakkopasanen](https://i.ibb.co/NsnCL3P/2020-12-06-16-35-02-EQSwapper-ps1-Shortcut.png 'Select headphone')
+![EQSwapper](https://i.ibb.co/s3BvKWS/2020-12-07-23-06-28-EQ-Swapper.png 'Select headphone')
 
 ## to build an exe
 
