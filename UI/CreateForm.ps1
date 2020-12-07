@@ -1,3 +1,13 @@
+# Hide PowerShell Console
+Add-Type -Name Window -Namespace Console -MemberDefinition '
+[DllImport("Kernel32.dll")]
+public static extern IntPtr GetConsoleWindow();
+[DllImport("user32.dll")]
+public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
+'
+$consolePtr = [Console.Window]::GetConsoleWindow()
+[Console.Window]::ShowWindow($consolePtr, 0)
+
 # Init PowerShell Gui
 Add-Type -AssemblyName System.Windows.Forms
 # Create a new form
@@ -21,6 +31,7 @@ $ListView.FullRowSelect = $true
 $ListView.MultiSelect = $false
 $ListView.AutoResizeColumns([System.Windows.Forms.ColumnHeaderAutoResizeStyle]::HeaderSize)
 $ListView.HideSelection = $false;
+$ListView.Columns[0].Width = 0;
 
 $loadHeadphoneButton = New-Object system.Windows.Forms.Button
 $loadHeadphoneButton.BackColor = "#a4ba67"
