@@ -75,4 +75,5 @@ function ButtonGetHeapdhonesAction {
 }
 # THIS SHOULD BE AT THE END OF YOUR SCRIPT FOR NOW
 # Display the form
+ButtonGetHeapdhonesAction
 [void]$EQSwapperForm.ShowDialog()
